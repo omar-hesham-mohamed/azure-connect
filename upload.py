@@ -1,10 +1,20 @@
 import psycopg2
+import os
+from dotenv import load_dotenv
+
+
+load_dotenv()
+
+HOST = os.getenv("HOST")
+DATABASE = os.getenv("DATABASE")
+USER = os.getenv("USER")
+PASSWORD = os.getenv("PASSWORD")
 
 conn = psycopg2.connect(
-    host="scraper-server-grad-project.postgres.database.azure.com",
-    database="scraped_data",
-    user="omar2776",
-    password="REMOVED_SECRET!",
+    host= HOST,
+    database= DATABASE,
+    user= USER,
+    password= PASSWORD,
     port=5432,
     sslmode="require"
 )
